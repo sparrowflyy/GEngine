@@ -15,7 +15,6 @@ public:
   GTimer timer;
 	int winWidth;
 	int winHeight;
-
   std::vector<std::shared_ptr<GEvent>> eventsPool;
   friend class GLoop;
   bool isGameStarted;

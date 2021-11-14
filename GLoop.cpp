@@ -2,7 +2,7 @@
 
 
 void GLoop::loop() {
-  sf::RenderWindow window(sf::VideoMode(game->winWidth, game->winHeight), "Tetris");
+  sf::RenderWindow window(sf::VideoMode(game->winWidth, game->winHeight), "Tetris", sf::Style::Close | sf::Style::Titlebar);
   sf::Clock clock;
   float dt = 0;
   while (window.isOpen())
