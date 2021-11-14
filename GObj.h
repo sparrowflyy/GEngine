@@ -15,12 +15,19 @@ public:
 		sprites.clear();
 		events.clear();
 	};
-
+  virtual bool hasMass() const {return false;}
 	//index of sprite to draw
 	int curIdx = 0;
 	int eventIdx = 0;
-
 	std::vector<std::shared_ptr<sf::Texture>> textures {};
 	std::vector<std::shared_ptr<sf::Sprite>> sprites {};
 	std::vector<std::shared_ptr<GEvent>> events;
+};
+
+class GObjSolid: public GObj{
+public:
+    double velocity;
+    double mass;
+    bool hasMass() const override {return true;}
+
 };

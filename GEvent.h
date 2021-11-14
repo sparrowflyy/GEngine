@@ -38,3 +38,11 @@ public:
     void setString(const std::string& iString) {string = iString;};
     std::string string;
 };
+class GEventForce: public GEvent {
+public:
+    GEventForce(sf::Vector2f& iVector) : GEvent(GEvent::EventType::Force), vector(iVector) {};
+    ~GEventForce()  = default;
+    sf::Vector2f getVector() {return vector;}
+private:
+    sf::Vector2f vector {0,1.0};
+};
