@@ -40,7 +40,7 @@ public:
 };
 class GEventForce: public GEvent {
 public:
-    GEventForce(sf::Vector2f& iVector) : GEvent(GEvent::EventType::Force), vector(iVector) {};
+    GEventForce(const sf::Vector2f& iVector) : GEvent(GEvent::EventType::Force), vector(iVector) {};
     ~GEventForce()  = default;
     sf::Vector2f getVector() {return vector;}
 private:
