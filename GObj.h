@@ -26,8 +26,10 @@ public:
 
 class GObjSolid: public GObj{
 public:
-    double velocity;
+    sf::Vector2f velocity;
     double mass;
     bool hasMass() const override {return true;}
-
+    void calculateForce(const sf::Vector2f& iForce, float dt) {
+      velocity += iForce * (dt * (iForce.x * iForce.x + iForce.y * iForce.y)) ;
+    }
 };

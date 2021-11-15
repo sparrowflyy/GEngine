@@ -7,10 +7,14 @@ void GTimer::addEvent(const std::string &iEventName, float iPeriod) {
   eventsReadiness[iEventName] = EventTimer(iPeriod);
 }
 
+float GTimer::getDt() const {
+  return curDt;
+}
 void GTimer::setNewPeriod(const std::string &iEventName, float iPeriod) {
   eventsReadiness[iEventName].period = iPeriod;
 }
 void GTimer::addTimeTickS(float iTime) {
+  curDt = iTime;
   for (auto& [name,timer] : eventsReadiness){
     timer.addTime(iTime);
   }

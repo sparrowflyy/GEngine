@@ -10,6 +10,7 @@ public:
     MotionEnd,
 		Intersection,
 		Force,
+    ForceAllow,
 		RotationStart,
 		RotationEnd,
     Text
@@ -40,9 +41,17 @@ public:
 };
 class GEventForce: public GEvent {
 public:
-    GEventForce(const sf::Vector2f& iVector) : GEvent(GEvent::EventType::Force), vector(iVector) {};
+    GEventForce(const sf::Vector2f& iVector, float dt) : GEvent(GEvent::EventType::Force), vector(iVector), deltaTime(dt) {};
     ~GEventForce()  = default;
     sf::Vector2f getVector() {return vector;}
+    float getDeltaTime() {return deltaTime;}
 private:
     sf::Vector2f vector {0,1.0};
+    float deltaTime;
+};
+
+class GEventForceAllow: public GEvent {
+public:
+    GEventForceAllow() : GEvent(GEvent::EventType::ForceAllow){};
+    ~GEventForceAllow()  = default;
 };

@@ -2,7 +2,7 @@
 
 
 void GLoop::loop() {
-  sf::RenderWindow window(sf::VideoMode(game->winWidth, game->winHeight), "Tetris", sf::Style::Close | sf::Style::Titlebar);
+  sf::RenderWindow window(sf::VideoMode(game->winWidth, game->winHeight), "Flappy Bird", sf::Style::Close);
   sf::Clock clock;
   float dt = 0;
   while (window.isOpen())
@@ -19,8 +19,8 @@ void GLoop::loop() {
     sf::Time elapsedTime = clock.getElapsedTime();
     dt += elapsedTime.asSeconds();
     game->timer.addTimeTickS(dt);
-    game->processKeys(event);
     if (dt >= frameTime) {
+      game->processKeys(event);
       game->processEvents();
       dt = 0;
       clock.restart();

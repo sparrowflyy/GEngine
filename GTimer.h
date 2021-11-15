@@ -13,7 +13,7 @@ class GTimer{
     void addEvent(const std::string& iEventName, float iPeriod);
     void setNewPeriod(const std::string& iEventName, float iPeriod);
     bool isEventReady(const std::string& iEventName);
-
+    float getDt() const;
     ~GTimer() = default;
 private:
     struct EventTimer {
@@ -30,9 +30,9 @@ private:
         float period;
         float elapsedTime;
         bool ready;
-
     };
     std::map<std::string, EventTimer> eventsReadiness;
+    float curDt;
 };
 #define TETRIS_GTIMER_H
 
